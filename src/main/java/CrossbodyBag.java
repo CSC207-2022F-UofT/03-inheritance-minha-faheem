@@ -5,7 +5,6 @@
  * You may find the readings in chapter 3. Relationships between Classes
  * helpful while working through this exercise.
  */
-
 /*
  * TODO: Create a public class named CrossbodyBag which is a subclass of Bag
  *       In addition to the attributes in Bag, the CrossbodyBag should have an
@@ -30,3 +29,34 @@
  *
  *       See the tests in test/CrossBodyBagTest.java for examples.
  */
+
+public class CrossbodyBag extends Bag {
+    int numberOfStraps;
+    /**
+     * Creates a new CrossbodyBag with the given color, capacity,
+     * and number of straps.
+     *
+     * @param color
+     * @param capacity
+     * @param numberOfStraps number of straps
+     */
+    public CrossbodyBag(String color, int capacity, int numberOfStraps) {
+        super(color, capacity);
+        this.numberOfStraps = numberOfStraps;
+    }
+
+    @Override
+    public void enhance() {
+        super.increaseCapacity(2);
+    }
+
+    public int getNumberOfStraps() {
+        return this.numberOfStraps;
+    }
+
+    @Override
+    public String toString() {
+        return this.getColor() + " Crossbody Bag with " + this.getNumberOfStraps() + " straps (" +
+                this.getNumberOfContents() + " / " + this.getCapacity() + ")";
+    }
+}
